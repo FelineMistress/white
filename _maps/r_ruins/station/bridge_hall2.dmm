@@ -1227,11 +1227,8 @@
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain)
 "qk" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/obj/structure/lattice,
-/turf/open/openspace,
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
 /area/hallway/primary/central/east)
 "qn" = (
 /obj/structure/cable,
@@ -2678,6 +2675,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/central/north)
+"IQ" = (
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central/east)
 "IY" = (
 /obj/machinery/light{
 	dir = 8
@@ -3522,6 +3522,10 @@
 	},
 /turf/open/openspace,
 /area/hallway/primary/central/west)
+"VF" = (
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel/monofloor,
+/area/hallway/primary/central/east)
 "VM" = (
 /obj/structure/lattice/catwalk,
 /turf/open/openspace,
@@ -4898,11 +4902,11 @@ Lp
 VM
 VM
 VM
-Lp
+IC
 VM
 IC
 VM
-Lp
+IC
 VM
 VM
 mw
@@ -4936,11 +4940,11 @@ nT
 bx
 bx
 bx
-nT
-bx
 IC
-bx
-nT
+VM
+VM
+VM
+IC
 bx
 VM
 mw
@@ -4974,11 +4978,11 @@ nT
 bx
 bx
 bx
-nT
-bx
 IC
 bx
-nT
+bx
+bx
+IC
 bx
 VM
 Gr
@@ -5012,11 +5016,11 @@ AJ
 nT
 nT
 nT
-nT
-nT
 IC
-nT
-qk
+bx
+bx
+bx
+IC
 nT
 VM
 VM
@@ -5051,9 +5055,9 @@ lo
 lo
 lo
 gU
-lo
-lo
-lo
+qk
+VF
+qk
 gU
 lo
 xG
@@ -5090,7 +5094,7 @@ cX
 eo
 IY
 eo
-cX
+IQ
 eo
 wL
 rp

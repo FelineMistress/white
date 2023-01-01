@@ -73674,6 +73674,10 @@
 /obj/structure/cable,
 /turf/open/floor/plasteel,
 /area/cargo/qm)
+"vIf" = (
+/obj/structure/stairs/south,
+/turf/open/floor/plasteel/showroomfloor,
+/area/hallway/secondary/service)
 "vIh" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -120569,7 +120573,7 @@ lIv
 wpr
 xzy
 skm
-skm
+vIf
 sJy
 ewX
 wkc
