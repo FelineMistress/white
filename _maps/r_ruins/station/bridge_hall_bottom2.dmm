@@ -4224,12 +4224,12 @@
 	},
 /area/hallway/primary/central/low_level_centre)
 "UJ" = (
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
 	id = "bridge blast";
 	name = "bridge blast door"
 	},
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "UL" = (

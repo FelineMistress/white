@@ -975,9 +975,13 @@
 "ky" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/poddoor{
-	id = "uploadblast";
-	name = "Upload blast door"
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge";
+	req_access_txt = "19"
+	},
+/obj/machinery/door/poddoor/preopen{
+	id = "bridge blast";
+	name = "bridge blast door"
 	},
 /turf/open/floor/plasteel/monofloor/dark,
 /area/command)
@@ -1123,7 +1127,7 @@
 	name = "bridge blast door"
 	},
 /obj/structure/cable,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command)
 "my" = (
@@ -2632,14 +2636,6 @@
 	},
 /turf/open/floor/plating,
 /area/commons/fitness/recreation)
-"CS" = (
-/obj/machinery/button/door{
-	id = "uploadblast";
-	name = "Upload blast door";
-	req_access_txt = "19"
-	},
-/turf/closed/wall/r_wall,
-/area/command)
 "CV" = (
 /obj/machinery/camera/autoname{
 	dir = 1
@@ -3425,7 +3421,6 @@
 	id = "capblast";
 	name = "captains blast door"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 4
 	},
@@ -3433,6 +3428,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command/heads_quarters/captain/private)
 "KU" = (
@@ -4296,8 +4292,8 @@
 	id = "capblast";
 	name = "captains blast door"
 	},
-/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
+/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium,
 /turf/open/floor/plating,
 /area/command/heads_quarters/captain/private)
 "WK" = (
@@ -4923,7 +4919,7 @@ mw
 Gr
 ky
 ky
-CS
+Gr
 mw
 mw
 vg

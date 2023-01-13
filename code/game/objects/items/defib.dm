@@ -698,7 +698,7 @@
 	base_icon_state = "syndiepaddles"
 
 /obj/item/shockpaddles/syndicate/nanotrasen
-	name = "электроды элитного дефибриллятора NanoTrasen"
+	name = "электроды элитного дефибриллятора НаноТрейзен"
 	desc = "Военный образец. Мощные конденсаторы позволяют пробивать легкую одежду, а так же использовать его в бою для разоружения или агрессивного электрошока."
 	icon_state = "ntpaddles0"
 	inhand_icon_state = "ntpaddles0"
