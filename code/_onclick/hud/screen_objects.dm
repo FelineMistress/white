@@ -84,10 +84,22 @@
 		var/mob/living/carbon/human/H = usr
 		H.mind.print_levels(H)
 
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
+
 /atom/movable/screen/craft
 	name = "создание предметов"
 	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "craft"
+
+/atom/movable/screen/craft/Click()
+	. = ..()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/area_creator
 	name = "новая зона"
@@ -95,6 +107,11 @@
 	icon_state = "area_edit"
 
 /atom/movable/screen/area_creator/Click()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
+
 	if(usr.incapacitated() || (isobserver(usr) && !isAdminGhostAI(usr)))
 		return TRUE
 	var/area/A = get_area(usr)
@@ -112,6 +129,9 @@
 	var/mob/M = usr
 	var/datum/language_holder/H = M.get_language_holder()
 	H.open_language_menu(usr)
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/inventory
 	/// The identifier for the slot. It has nothing to do with ID cards.
@@ -260,6 +280,10 @@
 /atom/movable/screen/drop/Click()
 	if(usr.stat == CONSCIOUS)
 		usr.dropItemToGround(usr.get_active_held_item())
+		var/mob/M = usr
+		if(!M?.hud_used?.retro_hud)
+			flick("act_drop0", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/act_intent
 	name = "взаимодействие"
@@ -296,8 +320,8 @@
 
 /atom/movable/screen/spacesuit
 	name = "Состояние батареи костюма"
+	icon = 'icons/hud/neoscreen.dmi'
 	icon_state = "spacesuit_0"
-	blend_mode = BLEND_ADD
 
 /atom/movable/screen/mov_intent
 	name = "бег/шаг"
@@ -306,6 +330,7 @@
 
 /atom/movable/screen/mov_intent/Click()
 	toggle(usr)
+	SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/mov_intent/update_icon_state()
 	switch(hud?.mymob?.m_intent)
@@ -332,6 +357,10 @@
 	if(isobserver(usr))
 		return
 	usr.stop_pulling()
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[base_icon_state]", src)
+	SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/pull/update_icon_state()
 	icon_state = "[base_icon_state][hud?.mymob?.pulling ? null : 0]"
@@ -347,6 +376,9 @@
 	if(isliving(usr))
 		var/mob/living/L = usr
 		L.resist()
+		if(!L?.hud_used?.retro_hud)
+			flick("act_resist0", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/rest
 	name = "лежать"
@@ -359,6 +391,7 @@
 	if(isliving(usr))
 		var/mob/living/L = usr
 		L.toggle_resting()
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/rest/update_icon_state()
 	var/mob/living/user = hud?.mymob
@@ -404,6 +437,7 @@
 	if(iscarbon(usr))
 		var/mob/living/carbon/C = usr
 		C.toggle_throw_mode()
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/zone_sel
 	name = "целевая зона"
@@ -713,29 +747,38 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen_loc = UI_COMBO
 	var/timerid
+	var/retro_hud = FALSE
 
 /atom/movable/screen/combo/proc/clear_streak()
-	animate(src, alpha = 0, 2 SECONDS, SINE_EASING)
+	if(retro_hud)
+		animate(src, alpha = 0, 2 SECONDS, SINE_EASING)
 	timerid = addtimer(CALLBACK(src, PROC_REF(reset_icons)), 2 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 
 /atom/movable/screen/combo/proc/reset_icons()
 	cut_overlays()
-	icon_state = ""
+	if(retro_hud)
+		icon_state = ""
 
 /atom/movable/screen/combo/update_icon_state(streak = "", time = 2 SECONDS)
 	. = ..()
 	reset_icons()
 	if (timerid)
 		deltimer(timerid)
-	alpha = 255
+	if(retro_hud)
+		alpha = 255
 	if (!streak)
 		return
 	timerid = addtimer(CALLBACK(src, PROC_REF(clear_streak)), time, TIMER_UNIQUE | TIMER_STOPPABLE)
-	icon_state = "blank"
+	if(retro_hud)
+		icon_state = "blank"
 	for (var/i = 1; i <= length(streak); ++i)
 		var/intent_text = copytext(streak, i, i + 1)
 		var/image/intent_icon = image(icon,src,"combo_[intent_text]")
-		intent_icon.pixel_x = 6 * (i - 1) - 8 * length(streak)
+		if(!retro_hud)
+			intent_icon.pixel_x = 6 * (i - 1)
+			intent_icon.pixel_y = 2
+		else
+			intent_icon.pixel_x = 6 * (i - 1) - 6 * length(streak)
 		add_overlay(intent_icon)
 
 /atom/movable/screen/weather
@@ -748,6 +791,12 @@
 	screen_loc = "hud:LEFT,SOUTH"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
+/atom/movable/screen/bottom_background
+	icon = 'icons/hud/btm.png'
+	layer = HUD_BACKGROUND_LAYER
+	screen_loc = "bottom:LEFT,SOUTH"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
 /atom/movable/screen/side_background/thing
 	icon = 'icons/hud/sider.png'
 	screen_loc = "RIGHT,SOUTH"
@@ -757,10 +806,10 @@
 	icon_state = "neobg"
 	layer = HUD_BUTTON_BG_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	screen_loc = "hud:LEFT,TOP-6"
+	screen_loc = "hud:LEFT,TOP-7"
 
 /atom/movable/screen/side_button_bg/high
 	icon = 'icons/hud/neoscreen64.dmi'
 	icon_state = "neomisc"
 	layer = HUD_BUTTON_HIGH_BG_LAYER
-	screen_loc = "hud:LEFT,TOP-7"
+	screen_loc = "hud:LEFT,TOP-8"

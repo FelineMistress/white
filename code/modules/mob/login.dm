@@ -38,6 +38,10 @@
 
 	if(!hud_used)
 		create_mob_hud()
+	else if(client?.prefs?.retro_hud != hud_used?.retro_hud)
+		hud_used = null
+		create_mob_hud()
+
 	if(hud_used)
 		hud_used.show_hud(hud_used.hud_version)
 		hud_used.update_ui_style(ui_style2icon(client.prefs.UI_style))
@@ -98,6 +102,9 @@
 	AddElement(/datum/element/weather_listener, /datum/weather/ash_storm, ZTRAIT_ASHSTORM, GLOB.ash_storm_sounds)
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MOB_LOGGED_IN, src)
+
+	if(client?.ckey == "shruman")
+		AddComponent(/datum/component/antishruman)
 
 	return TRUE
 

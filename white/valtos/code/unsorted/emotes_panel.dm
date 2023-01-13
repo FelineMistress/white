@@ -4,6 +4,8 @@
 	using = new /atom/movable/screen/emote_button()
 	using.icon = retro_hud ? ui_style : using.icon
 	using.screen_loc = retro_hud ? UI_EMOTES_RETRO : UI_EMOTES
+	if(ishuman(owner))
+		using.screen_loc = retro_hud ? UI_EMOTES_RETRO : UI_EMOTES_HUMAN
 	using.hud = src
 	infodisplay += using
 
@@ -15,6 +17,10 @@
 
 /atom/movable/screen/emote_button/Click()
 	ui_interact(usr)
+	var/mob/M = usr
+	if(!M?.hud_used?.retro_hud)
+		flick("[icon_state]_pressed", src)
+		SEND_SOUND(usr, sound('sound/effects/klik.ogg', volume = 25))
 
 /atom/movable/screen/emote_button/MouseEntered()
 	. = ..()
