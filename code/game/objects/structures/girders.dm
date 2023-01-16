@@ -217,6 +217,9 @@
 			else
 				if(S.get_amount() < 1)
 					return
+				if(state == GIRDER_PLAST)
+					to_chat(user, span_warning("Невозможно закрепить пласталевую обшивку на пластитановых ребрах жесткости!"))
+					return
 				to_chat(user, span_notice("Начинаю устанавливать ребра жесткости..."))
 				if(do_after(user, 60*platingmodifier, target = src))
 					if(S.get_amount() < 1)
@@ -261,6 +264,9 @@
 				return
 			else
 				if(S.get_amount() < 1)
+					return
+				if(state == GIRDER_REINF)
+					to_chat(user, span_warning("Невозможно закрепить пластитановую обшивку на пласталевых ребрах жесткости!"))
 					return
 				to_chat(user, span_notice("Начинаю устанавливать ребра жесткости..."))
 				if(do_after(user, 60*platingmodifier, target = src))
