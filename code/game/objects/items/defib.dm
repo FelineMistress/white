@@ -38,11 +38,11 @@
 /obj/item/defibrillator/get_cell()
 	return cell
 
-//	Осмотр чемоданчика
+//	Осмотр дефиба
 /obj/item/defibrillator/examine(mob/user)
 	. = ..()
 	var/obj/item/stock_parts/cell/C = get_cell()
-		. += "<hr><span class='notice'>Дисплей:</span>"
+	. += "<hr><span class='notice'>Дисплей:</span>"
 	if(C)
 		. += "</br><span class='notice'>- Уроверь батареи <b>[C.percent()]%</b>.</span>"
 	else
