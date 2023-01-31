@@ -1484,27 +1484,6 @@
 	category = list("initial","Разное","Строительство")
 	sub_category = list("Контролеры")
 
-
-/datum/design/holosign/restaurant
-	name = "Голопроектор ресторана"
-	desc = "Голопроектор указывающий посадочные места для посетителей ресторана."
-	id = "holosignrestaurant"
-	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	build_path = /obj/item/holosign_creator/robot_seat/restaurant
-	category = list("Снаряжение")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
-
-/datum/design/holosign/bar
-	name = "Голопроектор бара"
-	desc = "Голопроектор указывающий посадочные места для посетителей бара."
-	id = "holosignbar"
-	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
-	build_path = /obj/item/holosign_creator/robot_seat/bar
-	category = list("Снаряжение")
-	departmental_flags = DEPARTMENTAL_FLAG_SERVICE
-
 /datum/design/floor_painter
 	name = "Маркировщик пола"
 	desc = "Используется для покраски полов. Круто?"
@@ -1546,6 +1525,7 @@
 	desc = "Ловись рыбка большая и маленькая."
 	id = "fishing_rod"
 	build_type = AUTOLATHE | AWAY_LATHE | MECHFAB
+	construction_time = 40
 	materials = list(/datum/material/iron = 200, /datum/material/glass = 200)
 	build_path = /obj/item/fishing_rod
 	category = list("initial", "Разное", "Инструменты", "Прочее")

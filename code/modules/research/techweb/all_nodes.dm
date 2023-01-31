@@ -99,6 +99,8 @@
 		"custom_vendor_refill",
 		"price_tagger",
 		"flamethrower",
+		"holosignrestaurant",
+		"holosignbar",
 	)
 
 /datum/techweb_node/basic_medical
@@ -152,6 +154,7 @@
 		"rollerbed",
 		"iv_drip_tele",
 		"breathing_bag",
+		"hypno_watch",
 	)
 
 /datum/techweb_node/mmi
@@ -574,6 +577,7 @@
 		"bounty_pad",
 		"bounty_pad_control",
 		"price_controller",
+		"bounty",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
@@ -1237,10 +1241,11 @@
 		"safeguard_module",
 		"onehuman_module",
 		"protectstation_module",
+		"trust_nt_module",
 		"quarantine_module",
 		"oxygen_module",
 		"freeform_module",
-	"reset_module",
+		"reset_module",
 		"purge_module",
 		"remove_module",
 		"freeformcore_module",
@@ -1249,7 +1254,7 @@
 		"tyrant_module",
 		"overlord_module",
 		"corporate_module",
-	"default_module",
+		"default_module",
 		"borg_ai_control",
 		"mecha_tracking_ai_control",
 		"aiupload",
@@ -2977,8 +2982,8 @@
 
 /datum/techweb_node/fishing
 	id = "fishing"
-	display_name = "Fishing Technology"
-	description = "Cutting edge fishing advancements."
+	display_name = "Технологии рыбалки"
+	description = "Исконное ремесло в глубоком космосе."
 	prereq_ids = list(
 		"base",
 	)

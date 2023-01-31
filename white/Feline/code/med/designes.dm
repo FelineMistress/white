@@ -290,6 +290,17 @@
 	sub_category = list("Экипировка")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY | DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/hypno_watch
+	name = "карманные часы"
+	desc = "Красивая реплика старинных механических часов на цепочке. Корпус выполнен из золота и ярко блестит при свете ламп. В этом блеске есть что-то гипнотически завораживающее..."
+	id = "hypno_watch"
+	build_path = /obj/item/hypno_watch
+	build_type = AUTOLATHE | PROTOLATHE | MECHFAB
+	construction_time = 40
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 1000, /datum/material/gold = 2000)
+	category = list("Прочее")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/solnce
 	name = "МК-Солнце"
 	desc = "Многофункциональный медицинский комплекс \"Солнце\". Передовая военная разработка в области экстренной полевой медицины. Для начала работы необходимо нажать кнопку инициации выбора модуля, после чего установить соответствующие расходные материалы."
