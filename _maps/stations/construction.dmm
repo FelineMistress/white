@@ -319,13 +319,6 @@
 	},
 /turf/open/space/basic,
 /area/engineering/atmos/upper)
-"bu" = (
-/obj/structure/chair/comfy/shuttle,
-/obj/effect/landmark/latejoin,
-/obj/effect/landmark/start/mechanic,
-/obj/effect/landmark/start/chief_engineer,
-/turf/open/floor/mineral/titanium/blue,
-/area/hallway/secondary/entry)
 "bv" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -371,12 +364,14 @@
 /turf/open/floor/plating/airless,
 /area/science/xenobiology)
 "bK" = (
-/obj/structure/lattice,
-/obj/structure/sign/departments/medbay/alt{
-	pixel_y = -32
+/obj/structure/lattice/catwalk,
+/obj/effect/light_emitter{
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "bN" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -1408,11 +1403,9 @@
 /turf/open/floor/plasteel/monofloor,
 /area/cargo/warehouse)
 "fD" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecomms Server Room"
-	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
+/obj/machinery/door/airlock/hatch,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "fE" = (
@@ -1513,13 +1506,11 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "fV" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Telecomms Server Room"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/fans/tiny,
 /obj/structure/cable,
+/obj/machinery/door/airlock/hatch,
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/aisat/hallway)
 "fW" = (
@@ -3489,6 +3480,10 @@
 	dir = 6
 	},
 /area/science/lab)
+"nc" = (
+/obj/structure/sign/departments/science,
+/turf/closed/wall,
+/area/science/research)
 "ne" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -3617,6 +3612,16 @@
 /obj/structure/girder,
 /turf/open/floor/plating/airless,
 /area/medical/sleeper)
+"nN" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable,
+/obj/effect/light_emitter{
+	light_range = 3;
+	set_cap = 1;
+	set_luminosity = 4
+	},
+/turf/open/space/basic,
+/area/command/heads_quarters/captain/private)
 "nO" = (
 /obj/structure/foamedmetal,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -4412,6 +4417,13 @@
 	},
 /turf/open/floor/wood,
 /area/command/heads_quarters/captain/private)
+"qL" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/landmark/latejoin,
+/obj/effect/landmark/start/mechanic,
+/obj/effect/landmark/start/chief_engineer,
+/turf/open/floor/mineral/titanium/blue,
+/area/hallway/secondary/entry)
 "qM" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/backpack/duffelbag/med/surgery{
@@ -5356,7 +5368,6 @@
 	dir = 8
 	},
 /obj/machinery/camera/motion/directional/north,
-/obj/item/gun/energy/laser/captain,
 /turf/open/floor/plasteel/dark,
 /area/mine/lobby)
 "uh" = (
@@ -10804,6 +10815,10 @@
 	},
 /turf/open/floor/engine,
 /area/science/xenobiology)
+"NC" = (
+/obj/structure/sign/departments/medbay/alt,
+/turf/closed/wall,
+/area/medical/medbay/central)
 "ND" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
@@ -41065,7 +41080,7 @@ Yc
 Yc
 Yc
 Cw
-bK
+Cw
 FF
 kz
 UR
@@ -41323,7 +41338,7 @@ Cw
 BM
 wq
 wq
-FF
+NC
 oB
 QW
 Op
@@ -42351,7 +42366,7 @@ BM
 wq
 wq
 wq
-FF
+NC
 ts
 jN
 SM
@@ -42607,7 +42622,7 @@ Cw
 Cw
 Cw
 Cw
-bK
+Cw
 FF
 aS
 Ys
@@ -48479,7 +48494,7 @@ Cw
 Cw
 Cw
 Am
-bu
+qL
 pB
 jZ
 li
@@ -52374,7 +52389,7 @@ ia
 Cw
 TX
 wq
-CB
+nc
 CZ
 kt
 si
@@ -53402,7 +53417,7 @@ hs
 TX
 wq
 wq
-CB
+nc
 Rd
 ea
 kI
@@ -70644,7 +70659,7 @@ eq
 eq
 eq
 eq
-Pi
+nN
 Pi
 Dp
 Yc
@@ -72441,7 +72456,7 @@ ie
 WY
 GC
 ev
-Wl
+bK
 Dp
 Yc
 Yc
@@ -72955,7 +72970,7 @@ OR
 WY
 GC
 ev
-Wl
+bK
 Dp
 Yc
 Yc
