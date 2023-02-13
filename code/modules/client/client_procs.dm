@@ -588,12 +588,12 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		related_accounts_cid += "[query_get_related_cid.item[1]], "
 	qdel(query_get_related_cid)
 
-	if(CONFIG_GET(flag/panic_bunker) && CONFIG_GET(number/panic_bunker_cap) < GLOB.player_list.len && !holder && !GLOB.deadmins[ckey])
+	if(CONFIG_GET(flag/panic_bunker) && !holder && !GLOB.deadmins[ckey] && CONFIG_GET(flag/usewhitelist) && !check_whitelist(ckey))
 		var/living_recs = CONFIG_GET(number/panic_bunker_living)
 		//Relies on pref existing, but this proc is only called after that occurs, so we're fine.
 		var/minutes = get_exp_living(pure_numeric = TRUE)
 		if(minutes <= living_recs)
-			var/reject_message = "PBv2: [key] перенаправлен по причине: [minutes]/[living_recs]."
+			var/reject_message = "PBv3: [key] отклонён по причине: [minutes]/[living_recs]."
 			log_access(reject_message)
 			message_admins(span_adminnotice("[reject_message]"))
 			var/message = CONFIG_GET(string/panic_bunker_message)
@@ -605,7 +605,9 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 				to_chat(src, span_notice("Отправляем вас в [panic_name ? panic_name : panic_addr]."))
 				winset(src, null, "command=.options")
 				src << link("[panic_addr]?redirect=1")
-			qdel(src)
+			src << link("https://discord.station13.ru")
+			sleep(5)
+			winset(src, null, "command=.quit")
 			return
 
 	var/admin_rank = "Player"
@@ -625,7 +627,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	if(!query_client_in_db.NextRow())
 		new_player = 1
-		account_join_date = findJoinDate()
+		account_join_date = find_join_date(ckey)
 		var/datum/db_query/query_add_player = SSdbcore.NewQuery({"
 			INSERT INTO [format_table_name("player")] (`ckey`, `byond_key`, `firstseen`, `firstseen_round_id`, `lastseen`, `lastseen_round_id`, `ip`, `computerid`, `lastadminrank`, `accountjoindate`)
 			VALUES (:ckey, :key, Now(), :round_id, Now(), :round_id, INET_ATON(:ip), :computerid, :adminrank, :account_join_date)
@@ -653,7 +655,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 			account_join_date = query_get_client_age.item[3]
 			account_age = text2num(query_get_client_age.item[4])
 			if(!account_age)
-				account_join_date = findJoinDate()
+				account_join_date = find_join_date(ckey)
 				if(!account_join_date)
 					account_age = -1
 				else
@@ -693,7 +695,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		player_age = -1
 	. = player_age
 
-/client/proc/findJoinDate()
+/proc/find_join_date(ckey)
 	var/list/http = world.Export("http://byond.com/members/[ckey]?format=text")
 	if(!http)
 		log_world("Failed to connect to byond member page to age check [ckey]")
@@ -704,7 +706,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		if(R.Find(F))
 			. = R.group[1]
 		else
-			CRASH("Age check regex failed for [src.ckey]")
+			CRASH("Age check regex failed for [ckey]")
 
 /client/proc/validate_key_in_db()
 	var/sql_key

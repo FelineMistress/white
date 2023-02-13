@@ -7,6 +7,9 @@
 
 	var/damtype = BRUTE
 	var/force = 0
+	/// Icon to use as a 32x32 preview in crafting menus and such
+	var/icon_preview
+	var/icon_state_preview
 
 	/// How good a given object is at causing wounds on carbons. Higher values equal better shots at creating serious wounds.
 	var/wound_bonus = 0
@@ -398,7 +401,7 @@
 	if(. && receive_ricochet_damage_coeff)
 		take_damage(P.damage * receive_ricochet_damage_coeff, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armour_penetration) // pass along receive_ricochet_damage_coeff damage to the structure for the ricochet
 
-/obj/update_overlays()
+/obj/update_overlays(updates=ALL)
 	. = ..()
 	if(resistance_flags & ON_FIRE)
 		. += custom_fire_overlay ? custom_fire_overlay : GLOB.fire_overlay

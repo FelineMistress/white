@@ -24,7 +24,7 @@
 	resistance_flags = FIRE_PROOF
 
 	light_power = 0
-	light_range = 7
+	light_range = 3
 	light_color = COLOR_VIVID_RED
 
 	//Trick to get the glowing overlay visible from a distance
@@ -101,7 +101,7 @@
  */
 /obj/machinery/firealarm/proc/set_status()
 	if( (my_area.fire || LAZYLEN(my_area.active_firelocks)) && !(obj_flags & EMAGGED) )
-		set_light(l_power = 0.8)
+		set_light(l_power = 2)
 	else
 		soundloop.stop()
 		set_light(l_power = 0)
@@ -257,7 +257,7 @@
 
 	if(tool.tool_behaviour == TOOL_SCREWDRIVER && buildstage == 2)
 		tool.play_tool_sound(src)
-		panel_open = !panel_open
+		toggle_panel_open()
 		to_chat(user, span_notice("Провода теперь [panel_open ? "видно" : "скрыты"]."))
 		update_appearance()
 		return

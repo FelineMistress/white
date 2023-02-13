@@ -332,42 +332,13 @@ ooo++++++++ooymyosh/`````````````````````````````````````````````````..-:/oyddys
 ``:ooo+////////////+s.:/::::::::::::::::::::::::::::::::::::hhsshdyssyyyhdhyssssssyyys///sysdmmNmmmmshmNNNdhhmdNNdNNdsoh
 */
 
-GLOBAL_VAR_INIT(status_for_mentally_ill_amoeba_users, TRUE)
-GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa Kитaйcкий\n - Уникaльныe лaги\n - Без шyccoидoв\n \[<b>Bcё, выpyбaй, y мeня xyй вcтaл</b>")
-
 /world/proc/update_status()
 
 	var/s = ""
 
-	if(GLOB.status_for_mentally_ill_amoeba_users)
-		s = "SS13.SU\] <b>[prob(1) ? "Чёpнaя Peaльнocть" : "Бeлaя Мeчтa"]:</b> <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n" // length 87
+	s = "SS13.SU\] <big><b><a href=\"https://discord.station13.ru\">[prob(5) ? "Чёpнaя Peaльнocть" : "Бeлaя Мeчтa"]</a>:</b> Итерация #[global.config.current_version_string]</big>\n"
 
-		s += GLOB.custom_status_text // 168 max
-
-		status = s
-		return
-
-	s = "SS13.SU\] <big><b>FDev: White Dream: RU</b></big> <a href=\"http://station13.ru\">SITE</a> | <a href=\"https://discord.gg/2WAsvv5B5v\">DISCORD</a>\n"
-
-	switch(rand(1, 6))
-		if(1)
-			s += "<img src='https://assets.station13.ru/l/w7.png'>\n"
-			s += "\[<big>CLASSIC STATION</big>"
-		if(2)
-			s += "<img src='https://assets.station13.ru/l/w6.png'>\n"
-			s += "\[<big>ANIME HENTAI</big>"
-		if(3)
-			s += "<img src='https://assets.station13.ru/l/w5.png'>\n"
-			s += "\[<big>GRIMDARK EDITION</big>"
-		if(4)
-			s += "<img src='https://assets.station13.ru/l/w4.png'>\n"
-			s += "\[<big>CYBERPUNK EDITION</big>"
-		if(5)
-			s += "<img src='https://assets.station13.ru/l/w8.png'>\n"
-			s += "\[<big>REMOVE KEBAB</big>"
-		if(6)
-			s += "<img src='https://assets.station13.ru/l/w9.png'>\n"
-			s += "\[<big>PROBABLY NOT HARAM</big>"
+	s += "<img src='https://assets.station13.ru/l/nwd.png'>\n"
 
 	status = s
 
@@ -379,6 +350,29 @@ GLOBAL_VAR_INIT(custom_status_text, "- Пoлный пepeвoд нa Kитaйcки�
 		hub_password = "kMZy3U5jJHSiBQjr"
 	else
 		hub_password = "SORRYNOPASSWORD"
+
+// If this is called as a part of maploading you cannot call it on the newly loaded map zs, because those get handled later on in the pipeline
+/world/proc/increaseMaxX(new_maxx, max_zs_to_load = maxz)
+	if(new_maxx <= maxx)
+		return
+	var/old_max = world.maxx
+	maxx = new_maxx
+	if(!max_zs_to_load)
+		return
+	var/area/global_area = GLOB.areas_by_type[world.area] // We're guaranteed to be touching the global area, so we'll just do this
+	var/list/to_add = block(locate(old_max + 1, 1, 1), locate(maxx, maxy, max_zs_to_load))
+	global_area.contained_turfs += to_add
+
+/world/proc/increaseMaxY(new_maxy, max_zs_to_load = maxz)
+	if(new_maxy <= maxy)
+		return
+	var/old_maxy = maxy
+	maxy = new_maxy
+	if(!max_zs_to_load)
+		return
+	var/area/global_area = GLOB.areas_by_type[world.area] // We're guarenteed to be touching the global area, so we'll just do this
+	var/list/to_add = block(locate(1, old_maxy + 1, 1), locate(maxx, maxy, max_zs_to_load))
+	global_area.contained_turfs += to_add
 
 /world/proc/incrementMaxZ()
 	maxz++

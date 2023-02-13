@@ -194,7 +194,7 @@
 	toner = tonermax
 	diag_hud_set_borgcell()
 
-	AddComponent(/datum/component/tts)
+	tts_comp = AddComponent(/datum/component/tts)
 
 	logevent("System brought online.")
 	alert_control = new(src, list(ALARM_ATMOS, ALARM_FIRE, ALARM_POWER, ALARM_CAMERA, ALARM_BURGLAR, ALARM_MOTION), list(z))

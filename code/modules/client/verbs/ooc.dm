@@ -2,7 +2,7 @@ GLOBAL_VAR_INIT(OOC_COLOR, null)//If this is null, use the CSS for OOC. Otherwis
 GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 GLOBAL_LIST_INIT(retard_words, list("подливит" = "МЕНЯ В ЗАД ЕБУТ", "оникс" = "говно", "опух" = "говнище", "валтос" = "мяу"))
 GLOBAL_LIST_INIT(alko_list, list("zarri", "maxsc", "nfogmann", "unitazik", "sranklin"))
-GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
+//GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora", "roundead", "valtosss"))
 
 /client/verb/ooc(msg as text)
 	set name = "OOC" //Gave this shit a shorter name so you only have to time out "ooc" rather than "ooc message" to use it --NeoFite
@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
 	if(prefs.hearted)
 		var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
 		keyname = "[sheet.icon_tag("emoji-heart")][keyname]"
-	if(ckey in GLOB.boosty_subs) // just copy and paste it lmao
+	if(ckey in GLOB.donators_list["boosty"]) // just copy and paste it lmao
 		var/datum/asset/spritesheet/sheet = get_asset_datum(/datum/asset/spritesheet/chat)
 		keyname = "[sheet.icon_tag("emoji-b")][keyname]"
 	if(prefs.unlock_content)
@@ -481,7 +481,8 @@ GLOBAL_LIST_INIT(boosty_subs, list("nikitauou", "aldodonkar", "trora"))
 	if(fully_created)
 		INVOKE_ASYNC(src, .verb/fit_viewport)
 	else //Delayed to avoid wingets from Login calls.
-		addtimer(CALLBACK(src, .verb/fit_viewport, 1 SECONDS))
+		spawn(1 SECONDS) // this is because timer SS is not ticking during init, ПИДОРАС
+			INVOKE_ASYNC(src, .verb/fit_viewport)
 
 /client/verb/policy()
 	set name = "📘 Показать политику"
