@@ -67,7 +67,7 @@
 /area/hallway/primary/central/low_level_centre)
 "if" = (
 /obj/structure/stone_tile/surrounding/cracked,
-/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/icewing,
+/mob/living/simple_animal/hostile/retaliate/bat/icewing,
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
 "io" = (
@@ -76,8 +76,11 @@
 	dir = 4;
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi';
 	icon_state = "goliath";
-	name = "goliath"
+	name = "goliath";
+	pixel_y = 6;
+	anchored = 1
 	},
+/obj/structure/stone_tile/slab,
 /turf/template_noop,
 /area/template_noop)
 "jD" = (
@@ -88,6 +91,7 @@
 "kY" = (
 /obj/structure/window/reinforced,
 /obj/effect/turf_decal/siding/thinplating_new,
+/obj/structure/stone_tile/block/cracked,
 /turf/open/lava/smooth/lava_land_surface,
 /area/hallway/primary/central/low_level_centre)
 "nA" = (
@@ -153,8 +157,11 @@
 	dir = 8;
 	icon = 'icons/mob/lavaland/lavaland_monsters.dmi';
 	icon_state = "goliath";
-	name = "goliath"
+	name = "goliath";
+	pixel_y = 6;
+	anchored = 1
 	},
+/obj/structure/stone_tile/slab,
 /turf/template_noop,
 /area/template_noop)
 "ql" = (
@@ -205,10 +212,6 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 6
 	},
-/obj/structure/flora/rock/pile{
-	pixel_x = -12;
-	pixel_y = 13
-	},
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
 "vc" = (
@@ -218,7 +221,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "xp" = (
 /obj/structure/window/reinforced{
@@ -261,8 +264,9 @@
 /obj/effect/turf_decal/siding/thinplating_new/corner{
 	dir = 8
 	},
-/obj/structure/flora/rock{
-	pixel_x = -1
+/obj/structure/flora/rock/pile{
+	pixel_x = -12;
+	pixel_y = 13
 	},
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
@@ -321,7 +325,7 @@
 "CW" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/stripes/line,
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "DQ" = (
 /obj/structure/window/reinforced{
@@ -330,7 +334,9 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 4
 	},
-/obj/structure/stone_tile/surrounding_tile/burnt,
+/obj/structure/stone_tile/block/cracked{
+	dir = 4
+	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/hallway/primary/central/low_level_centre)
 "DX" = (
@@ -338,6 +344,9 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1
+	},
+/obj/structure/stone_tile/block/cracked{
 	dir = 1
 	},
 /turf/open/lava/smooth/lava_land_surface,
@@ -349,7 +358,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
 	},
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "Hm" = (
 /obj/structure/window/reinforced{
@@ -386,6 +395,7 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 6
 	},
+/obj/structure/stone_tile/cracked,
 /turf/open/lava/smooth/lava_land_surface,
 /area/hallway/primary/central/low_level_centre)
 "Kd" = (
@@ -415,6 +425,9 @@
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 8
 	},
+/obj/structure/stone_tile/block/cracked{
+	dir = 8
+	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/hallway/primary/central/low_level_centre)
 "LW" = (
@@ -433,11 +446,11 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "Nu" = (
 /obj/structure/stone_tile/slab/cracked,
-/mob/living/simple_animal/hostile/asteroid/basilisk/watcher/magmawing,
+/mob/living/simple_animal/hostile/retaliate/bat/magmawing,
 /turf/open/floor/plating/asteroid/basalt,
 /area/hallway/primary/central/low_level_centre)
 "Ny" = (
@@ -523,8 +536,15 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
+"Tc" = (
+/obj/structure/flora/rock{
+	pixel_y = -6;
+	pixel_x = 18
+	},
+/turf/open/floor/plating/asteroid/basalt,
+/area/hallway/primary/central/low_level_centre)
 "Tp" = (
 /obj/structure/railing{
 	dir = 9
@@ -532,7 +552,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "Ua" = (
 /obj/structure/stone_tile/block/cracked{
@@ -545,8 +565,8 @@
 /area/hallway/primary/central/low_level_centre)
 "Uf" = (
 /obj/structure/stone_tile/slab/burnt,
-/obj/effect/collapse{
-	pixel_y = -5
+/obj/structure/fluff/tendril{
+	pixel_y = -7
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/hallway/primary/central/low_level_centre)
@@ -565,6 +585,9 @@
 	},
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 9
+	},
+/obj/structure/stone_tile/cracked{
+	dir = 4
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/hallway/primary/central/low_level_centre)
@@ -593,7 +616,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/turf/open/lava,
+/turf/open/floor/plating/asteroid/dirty/fake_lava_v2,
 /area/template_noop)
 "YS" = (
 /obj/structure/statue/bone/rib{
@@ -776,7 +799,7 @@ Qc
 Uf
 UB
 Kd
-AB
+Tc
 ql
 fk
 fk

@@ -79,7 +79,7 @@
 
 /obj/effect/landmark/stationroom/bridge/random
 	template_names = list(
-		"Hall Bridge" = 1000,
+		"Hall Bridge" = 10,
 		"Compact Bridge" = 4,
 		"Default Bridge" = 5,
 		"Interesting Bridge" = 3,
@@ -88,8 +88,10 @@
 
 /obj/effect/landmark/stationroom/bridge_garden/random
 	template_names = list(
-		"Crab Garden" = 4,
-		"Cow Garden" = 3,
+		"Tropic Garden" = 3,
+		"Snow Garden" = 3,
+		"Lava Garden" = 3,
+		"Meteor Garden" = 3,
 		)
 	icon_state = "bridge_garden"
 

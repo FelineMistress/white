@@ -134,6 +134,18 @@
 	sub_category = list("Продвинутые протезы")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
+/datum/design/robot_head
+	name = "Протез головы"
+	desc = "Стандартная укрепленная черепная коробка, с подключаемой к позвоночнику нейронным сокетом и сенсорными стыковочными узлами."
+	id = "robot_head"
+	build_path = /obj/item/bodypart/head/robot
+	build_type = MECHFAB
+	construction_time = 80
+	materials = list(/datum/material/iron=5000)
+	category = list("Кибернетика")
+	sub_category = list("Продвинутые протезы")
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+
 /datum/design/body_bag
 	name = "Мешок для трупов"
 	desc = "Полиэтиленовый пакет, предназначенный для хранения и транспортировки трупов."

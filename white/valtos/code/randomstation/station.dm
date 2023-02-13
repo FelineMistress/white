@@ -81,16 +81,26 @@
 
 ////	////	Сад Холла бокса		////	////
 
-/datum/map_template/ruin/station/bridge_garden/crab
-	id = "bridge_garden_crab"
+/datum/map_template/ruin/station/bridge_garden
+	id = "bridge_garden_tropic"
 	prefix = "_maps/r_ruins/station/bridge_garden/"
 	suffix = "bridge_hall_garden_1.dmm"
-	name = "Crab Garden"
+	name = "Tropic Garden"
 
-/datum/map_template/ruin/station/bridge_garden/cow
-	id = "bridge_garden_cow"
+/datum/map_template/ruin/station/bridge_garden/snow
+	id = "bridge_garden_snow"
 	suffix = "bridge_hall_garden_2.dmm"
-	name = "Cow Garden"
+	name = "Snow Garden"
+
+/datum/map_template/ruin/station/bridge_garden/lava
+	id = "bridge_garden_lava"
+	suffix = "bridge_hall_garden_3.dmm"
+	name = "Lava Garden"
+
+/datum/map_template/ruin/station/bridge_garden/meteor
+	id = "bridge_garden_meteor"
+	suffix = "bridge_hall_garden_4.dmm"
+	name = "Meteor Garden"
 
 /datum/map_template/ruin/station/engine
 	id = "engine_sm"
