@@ -190,6 +190,7 @@
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/scientist,
 /obj/machinery/vending/wallmed/directional/south,
+/obj/effect/landmark/start/research_director,
 /turf/open/floor/mineral/titanium/blue,
 /area/hallway/secondary/entry)
 "aJ" = (
@@ -318,6 +319,13 @@
 	},
 /turf/open/space/basic,
 /area/engineering/atmos/upper)
+"bu" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/effect/landmark/latejoin,
+/obj/effect/landmark/start/mechanic,
+/obj/effect/landmark/start/chief_engineer,
+/turf/open/floor/mineral/titanium/blue,
+/area/hallway/secondary/entry)
 "bv" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -897,6 +905,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/start/specialist,
 /turf/open/floor/mineral/titanium/blue,
 /area/hallway/secondary/entry)
 "dH" = (
@@ -1173,6 +1182,7 @@
 	},
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/medical_doctor,
+/obj/effect/landmark/start/chief_medical_officer,
 /turf/open/floor/mineral/titanium/blue,
 /area/hallway/secondary/entry)
 "eM" = (
@@ -4021,6 +4031,7 @@
 /obj/structure/chair/comfy/shuttle,
 /obj/effect/landmark/latejoin,
 /obj/effect/landmark/start/shaft_miner,
+/obj/effect/landmark/start/quartermaster,
 /turf/open/floor/mineral/titanium/blue,
 /area/hallway/secondary/entry)
 "po" = (
@@ -11185,6 +11196,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/start/field_medic,
+/obj/effect/landmark/start/head_of_security,
 /turf/open/floor/mineral/titanium/blue,
 /area/hallway/secondary/entry)
 "Pb" = (
@@ -13474,8 +13487,8 @@
 /area/construction/storage_wing)
 "Yh" = (
 /obj/structure/chair/comfy/shuttle,
-/obj/effect/landmark/start/station_engineer,
 /obj/effect/landmark/latejoin,
+/obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/mineral/titanium/blue,
 /area/hallway/secondary/entry)
 "Yj" = (
@@ -48466,7 +48479,7 @@ Cw
 Cw
 Cw
 Am
-Yh
+bu
 pB
 jZ
 li
