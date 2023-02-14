@@ -552,7 +552,7 @@
 /obj/machinery/button/door{
 	pixel_y = -32;
 	name = "Камера содержания 1";
-	id = ы
+	id = "Virus Door 1"
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/virology)
