@@ -9431,12 +9431,11 @@
 	pixel_y = 2;
 	pixel_x = -1
 	},
-/obj/machinery/power/apc/highcap/ten_k{
-	dir = 1;
-	pixel_x = -25
-	},
 /obj/structure/cable,
 /obj/machinery/camera/autoname/directional/east,
+/obj/machinery/power/apc/auto_name/directional/west{
+	cell_type = /obj/item/stock_parts/cell/high
+	},
 /turf/open/floor/plasteel/dark,
 /area/maintenance/radshelter)
 "IJ" = (
@@ -12451,7 +12450,6 @@
 	pixel_x = -26;
 	pixel_y = 3
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
 /obj/machinery/door/airlock/highsecurity{
 	name = "AI Chamber";
@@ -39736,7 +39734,7 @@ Zv
 Gb
 Fo
 Fo
-Fo
+bO
 Vn
 xF
 vH
@@ -39992,8 +39990,8 @@ zl
 Az
 HD
 rK
-rK
 wE
+rK
 Cg
 rK
 vH
@@ -40249,8 +40247,8 @@ JW
 vd
 jc
 bO
-bO
 Fo
+bO
 Vn
 rK
 bO
@@ -40506,8 +40504,8 @@ GU
 yV
 Oi
 bO
-bO
 Fo
+bO
 Vn
 rK
 Zd
@@ -40763,8 +40761,8 @@ JW
 vd
 mv
 bO
-bO
 Fo
+bO
 Vn
 rK
 Zf
@@ -41020,8 +41018,8 @@ GX
 nD
 UM
 Vn
-Vn
 tv
+Vn
 YP
 rK
 Jd
@@ -41277,8 +41275,8 @@ qQ
 dH
 vP
 uz
-uz
 QJ
+bO
 Vn
 rK
 Eu
@@ -41534,8 +41532,8 @@ JW
 vd
 zn
 Ju
-Ju
 uz
+bO
 Vn
 rK
 nQ
@@ -41791,8 +41789,8 @@ GU
 yV
 IL
 bO
-bO
 uz
+bO
 Vn
 cL
 Zd
@@ -42048,8 +42046,8 @@ JW
 vd
 wa
 bO
-bO
 uz
+bO
 Vn
 cL
 bO
@@ -42305,8 +42303,8 @@ GX
 nD
 Vs
 Vn
-Vn
 Ht
+Vn
 fO
 cL
 cL
@@ -42819,7 +42817,7 @@ JW
 vd
 sT
 Ju
-Ju
+bO
 bO
 bO
 bO
