@@ -487,7 +487,7 @@
 	sub_category = list("Сенсорика")
 	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
 
-/datum/design/cyberimp_thermals
+/datum/design/cyberimp_basic_eyes
 	name = "Базовые кибернетические глаза"
 	desc = "Примитивный прототип протеза глаз способный видеть мир лишь в черно-белых оттенках, однако люди полностью лишенные зрения будут рады и такому."
 	id = "ci-basic_eyes"
