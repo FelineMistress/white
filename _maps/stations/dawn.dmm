@@ -12347,7 +12347,6 @@
 /turf/open/floor/plasteel,
 /area/science/research)
 "Kg" = (
-/obj/structure/cable,
 /obj/effect/turf_decal/tile/purple{
 	dir = 4
 	},
