@@ -1505,14 +1505,6 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
-"fV" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/fans/tiny,
-/obj/structure/cable,
-/obj/machinery/door/airlock/hatch,
-/turf/open/floor/plasteel/dark,
-/area/ai_monitored/turret_protected/aisat/hallway)
 "fW" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing{
@@ -8098,7 +8090,6 @@
 /area/engineering/lobby)
 "El" = (
 /obj/structure/lattice,
-/obj/structure/lattice,
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/space/basic,
@@ -12451,10 +12442,6 @@
 /turf/open/floor/plasteel/dark,
 /area/maintenance/radshelter)
 "TO" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "AI Chamber";
-	req_access_txt = "16"
-	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "AI Chamber entrance shutters";
 	name = "AI Chamber entrance shutters"
@@ -12466,6 +12453,10 @@
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/structure/cable,
+/obj/machinery/door/airlock/highsecurity{
+	name = "AI Chamber";
+	req_access_txt = "16"
+	},
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/turret_protected/ai)
 "TP" = (
@@ -71260,7 +71251,7 @@ ib
 tF
 tF
 BW
-fV
+fD
 BW
 BW
 NL
@@ -73316,7 +73307,7 @@ zg
 tF
 tF
 BW
-fV
+fD
 BW
 BW
 NL
