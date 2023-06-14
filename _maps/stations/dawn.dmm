@@ -12254,7 +12254,7 @@
 	name = "Gateway Shutters";
 	req_access_txt = "19";
 	pixel_y = -32;
-	desc = "Кнопка, которая контроллирует шлюзы и не только."ы
+	desc = "Кнопка, которая контроллирует шлюзы и не только."
 	},
 /turf/open/floor/plasteel,
 /area/command/gateway)
