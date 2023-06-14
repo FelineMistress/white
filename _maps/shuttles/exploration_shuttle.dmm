@@ -64,6 +64,13 @@
 "gf" = (
 /turf/template_noop,
 /area/template_noop)
+"hl" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump/on,
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/exploration)
 "jP" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -106,12 +113,6 @@
 /area/shuttle/exploration)
 "lT" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/machinery/button/door{
 	id = "ex_cab";
 	name = "Cabin Bolt Control";
@@ -123,6 +124,12 @@
 /obj/machinery/light/small,
 /obj/machinery/camera/autoname{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
@@ -203,14 +210,14 @@
 	},
 /obj/structure/cable,
 /obj/structure/fans/tiny,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
 /obj/machinery/door/airlock/shuttle{
 	req_access_txt = "49"
+	},
+/obj/machinery/atmospherics/components/binary/pump/on/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/binary/pump/on/layer4{
+	dir = 4
 	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/exploration)
@@ -540,8 +547,8 @@ Tg
 lT
 Tg
 ln
-BP
-RA
+hl
+IS
 Go
 ao
 ny
