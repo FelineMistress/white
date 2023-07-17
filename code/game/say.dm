@@ -50,6 +50,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 		if(!hearing_movable)//theoretically this should use as anything because it shouldnt be able to get nulls but there are reports that it does.
 			stack_trace("somehow theres a null returned from get_hearers_in_view() in send_speech!")
 			continue
+		listened += hearing_movable
 		hearing_movable.Hear(rendered, src, message_language, message, , spans, message_mods)
 		if(!found_client && length(hearing_movable.client_mobs_in_contents))
 			found_client = TRUE
@@ -233,6 +234,8 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 		verb_ask = M.verb_ask
 		verb_exclaim = M.verb_exclaim
 		verb_yell = M.verb_yell
+		voice = M.voice
+		last_freq = M.last_freq
 
 	// The mob's job identity
 	if(ishuman(M))

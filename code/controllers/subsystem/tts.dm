@@ -34,6 +34,9 @@ SUBSYSTEM_DEF(tts)
 	/// 7 seconds (or whatever the value of message_timeout is) to receive back a response.
 	var/average_tts_messages_time = 0
 
+	/// Used for caching
+	var/current_date = "NULL"
+
 /datum/controller/subsystem/tts/vv_edit_var(var_name, var_value)
 	// tts being enabled depends on whether it actually exists
 	if(NAMEOF(src, tts_enabled) == var_name)
@@ -51,9 +54,11 @@ SUBSYSTEM_DEF(tts)
 
 	queued_http_messages = new /datum/heap(GLOBAL_PROC_REF(cmp_word_length_asc))
 
+	current_date = time2text(world.timeofday, "YYYY/MM/DD")
+
 	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/tts/proc/play_tts(target, list/listeners, sound/audio, datum/language/language, range = 7, volume_offset = 0)
+/datum/controller/subsystem/tts/proc/play_tts(target, list/listeners, sound/audio, datum/language/language, range = 7, volume_offset = 0, freq, is_radio = FALSE)
 	var/turf/turf_source = get_turf(target)
 	if(!turf_source)
 		return
@@ -76,7 +81,18 @@ SUBSYSTEM_DEF(tts)
 				max_distance = SOUND_RANGE,
 				falloff_distance = SOUND_DEFAULT_FALLOFF_DISTANCE,
 				distance_multiplier = 1,
-				use_reverb = TRUE
+				use_reverb = TRUE,
+				frequency = freq,
+				vary = freq ? TRUE : FALSE
+			)
+		else if (is_radio)
+			listening_mob.playsound_local(
+				null,
+				vol = 30,
+				channel = channel,
+				sound_to_use = audio_to_use,
+				frequency = freq,
+				vary = freq ? TRUE : FALSE
 			)
 
 // Need to wait for all HTTP requests to complete here because of a rustg crash bug that causes crashes when dd restarts whilst HTTP requests are ongoing.
@@ -129,7 +145,7 @@ SUBSYSTEM_DEF(tts)
 		current_request.audio_length = text2num(response.headers["audio-length"]) * 10
 		if(!current_request.audio_length)
 			current_request.audio_length = 0
-		current_request.audio_file = "tmp/tts/[identifier].ogg"
+		current_request.audio_file = "tmp/tts/[current_date]/[identifier].ogg"
 		// Don't need the request anymore so we can deallocate it
 		current_request.request = null
 		if(MC_TICK_CHECK)
@@ -180,7 +196,7 @@ SUBSYSTEM_DEF(tts)
 				SHIFT_DATA_ARRAY(queued_tts_messages, tts_target, data)
 			else if(current_target.when_to_play < world.time)
 				audio_file = new(current_target.audio_file)
-				play_tts(tts_target, current_target.listeners, audio_file, current_target.language, current_target.message_range, current_target.volume_offset)
+				play_tts(tts_target, current_target.listeners, audio_file, current_target.language, current_target.message_range, current_target.volume_offset, current_target.freq, current_target.is_radio)
 				if(length(data) != 1)
 					var/datum/tts_request/next_target = data[2]
 					next_target.when_to_play = world.time + current_target.audio_length
@@ -196,23 +212,28 @@ SUBSYSTEM_DEF(tts)
 
 #undef TTS_ARBRITRARY_DELAY
 
-/datum/controller/subsystem/tts/proc/queue_tts_message(datum/target, message, datum/language/language, speaker, list/listeners, local = FALSE, message_range = 7, volume_offset = 0)
+/datum/controller/subsystem/tts/proc/queue_tts_message(datum/target, message, datum/language/language, speaker, list/listeners, local = FALSE, message_range = 7, volume_offset = 0, freq = 0, effect = null)
 	if(!tts_enabled)
 		return
 
 	// TGS updates can clear out the tmp folder, so we need to create the folder again if it no longer exists.
-	if(!fexists("tmp/tts/init.txt"))
-		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/init.txt")
+	if(!fexists("tmp/tts/[current_date]/init.txt"))
+		rustg_file_write("rustg HTTP requests can't write to folders that don't exist, so we need to make it exist.", "tmp/tts/[current_date]/init.txt")
 
 	var/shell_scrubbed_input = copytext_char(message, 1, 140)
-	var/identifier = "[sha1(speaker + shell_scrubbed_input)].[world.time]"
+	var/identifier = "[sha1(speaker + effect + shell_scrubbed_input)]"
 	if(!(speaker in GLOB.tts_voices))
 		return
 
 	var/datum/http_request/request = new()
-	var/file_name = "tmp/tts/[identifier].ogg"
-	request.prepare(RUSTG_HTTP_METHOD_GET, "http://127.0.0.1:2386/?speaker=[speaker]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
-	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners)
+	var/file_name = "tmp/tts/[current_date]/[identifier].ogg"
+	if(fexists(file_name))
+		var/sound/audio_file = new(file_name)
+		play_tts(target, listeners, audio_file, language, message_range, volume_offset, freq, (effect == "radio"))
+		return
+
+	request.prepare(RUSTG_HTTP_METHOD_GET, "http://tts.ss14.su:2386/?speaker=[speaker]&effect=[effect]&text=[shell_scrubbed_input]&ext=ogg", null, null, file_name)
+	var/datum/tts_request/current_request = new /datum/tts_request(identifier, request, shell_scrubbed_input, target, local, language, message_range, volume_offset, listeners, freq, is_radio = (effect == "radio"))
 	var/list/player_queued_tts_messages = queued_tts_messages[target]
 	if(!player_queued_tts_messages)
 		player_queued_tts_messages = list()
@@ -256,9 +277,13 @@ SUBSYSTEM_DEF(tts)
 	var/when_to_play = 0
 	/// Whether this request was timed out or not
 	var/timed_out = FALSE
+	/// Частота
+	var/freq
+	/// Это радио?
+	var/is_radio
 
 
-/datum/tts_request/New(identifier, datum/http_request/request, message, target, local, datum/language/language, message_range, volume_offset, list/listeners)
+/datum/tts_request/New(identifier, datum/http_request/request, message, target, local, datum/language/language, message_range, volume_offset, list/listeners, freq, is_radio)
 	. = ..()
 	src.identifier = identifier
 	src.request = request
@@ -269,13 +294,12 @@ SUBSYSTEM_DEF(tts)
 	src.message_range = message_range
 	src.volume_offset = volume_offset
 	src.listeners = listeners
+	src.freq = freq
+	src.is_radio = is_radio
 	start_time = world.time
 
 /datum/tts_request/proc/start_requests()
 	request.begin_async()
-
-/datum/tts_request/proc/get_primary_request()
-	return request
 
 /datum/tts_request/proc/get_primary_response()
 	return request.into_response()

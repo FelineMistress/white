@@ -293,7 +293,6 @@
 		if(T.getorganslot(ORGAN_SLOT_TAIL))
 			defense_mod += 2
 
-
 	// OF-FENSE
 	var/mob/living/carbon/sacker = parent
 

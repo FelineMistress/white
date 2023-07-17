@@ -349,8 +349,24 @@ GLOBAL_LIST_INIT(message_modes_stat_limits, list(
 			speech_bubble_recipients.Add(M.client)
 			found_client = TRUE
 
-	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG))
-		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(message), message_language, voice, listened, message_range = message_range)
+	if(found_client && !HAS_TRAIT(src, TRAIT_SIGN_LANG) && !message_mods[MODE_HEADSET])
+		var/frequency = 0
+		var/lowfreq = (voice in GLOB.tts_lowfreq)
+		if(ishuman(src))
+			var/mob/living/carbon/human/H = src
+			frequency = (lowfreq ? 32000 : 55000) - (H.age * 200)
+			if(H.skin_tone in list("african1", "african2"))
+				frequency *= 0.75
+
+			if(HAS_TRAIT(src, TRAIT_CLUMSY) || isfelinid(src))
+				frequency *= 1.25
+
+		last_freq = frequency
+
+		if(voice != "sentrybot" && (isbot(src) || issilicon(src) || isandroid(src) || is_ipc(src)))
+			voice = "sentrybot"
+
+		INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), src, html_decode(message), message_language, voice, listened, message_range = message_range, freq = frequency)
 
 	var/image/say_popup = image('icons/mob/talk.dmi', src, "[bubble_type][say_test(message)]", FLY_LAYER)
 	SET_PLANE_EXPLICIT(say_popup, ABOVE_GAME_PLANE, src)

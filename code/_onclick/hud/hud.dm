@@ -276,7 +276,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 /datum/hud/proc/get_plane_master(plane, group_key = PLANE_GROUP_MAIN)
 	var/plane_key = "[plane]"
 	var/datum/plane_master_group/group = master_groups[group_key]
-	return group.plane_masters[plane_key]
+	return group?.plane_masters[plane_key]
 
 /// Returns a list of all plane masters that match the input true plane, drawn from the passed in group (ignores z layer offsets)
 /datum/hud/proc/get_true_plane_masters(true_plane, group_key = PLANE_GROUP_MAIN)
@@ -321,7 +321,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	// This code is the absolute fucking worst, I want it to go die in a fire
 	// Seriously, why
-	screenmob.client.screen = list()
+	screenmob.client.clear_screen()
 	screenmob.client.apply_clickcatcher()
 
 	var/display_hud_version = version
