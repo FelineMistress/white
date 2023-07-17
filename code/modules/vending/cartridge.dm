@@ -1,6 +1,6 @@
 //This one's from bay12
 /obj/machinery/vending/cart
-	name = "PTech"
+	name = "Я-Мысль"
 	desc = "Картриджи для КПК."
 	product_slogans = "Тележка поехала!"
 	icon_state = "cart"
@@ -21,5 +21,5 @@
 	light_mask="cart-light-mask"
 
 /obj/item/vending_refill/cart
-	machine_name = "PTech"
+	machine_name = "Я-Мысль"
 	icon_state = "refill_smoke"

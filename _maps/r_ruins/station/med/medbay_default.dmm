@@ -285,7 +285,7 @@
 	pixel_y = 6
 	},
 /obj/item/reagent_containers/glass/bottle/epinephrine,
-/obj/item/stack/sheet/mineral/plasma,
+/obj/item/stack/sheet/mineral/plasma/five,
 /turf/open/floor/plasteel/white,
 /area/medical/pharmacy)
 "bF" = (
@@ -2223,7 +2223,7 @@
 	pixel_x = -8;
 	pixel_y = 10
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -8;
 	pixel_y = -6
 	},
@@ -3372,7 +3372,7 @@
 	pixel_x = 8;
 	pixel_y = 12
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = -6
 	},
@@ -5515,7 +5515,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = -2;
 	pixel_y = -2
 	},
@@ -5587,7 +5587,7 @@
 	pixel_x = -8;
 	pixel_y = -6
 	},
-/obj/item/storage/box/large_beakers{
+/obj/item/storage/box/beakers/large_beakers{
 	pixel_x = 8;
 	pixel_y = -6
 	},

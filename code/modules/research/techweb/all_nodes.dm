@@ -62,7 +62,8 @@
 		"restaurant_portal",
 		"salestagger",
 		"seclite",
-		"c9mm",
+		"c9mm_sec",
+		"c9mm_traumatic",
 		"c10mm",
 		"c45",
 		"a50ae",
@@ -298,6 +299,8 @@
 		"voice_analyser",
 		"light_tube",
 		"light_bulb",
+		"light_tube_autobuild",
+		"light_tube_autobuild_small",
 		"camera_assembly",
 		"newscaster_frame",
 		"large_welding_tool",
@@ -312,6 +315,8 @@
 		"coffee_cartridge",
 		"bluespace_coffeepot",
 		"coffeepot",
+		"coffeemug",
+		"coffeemugnt",
 		"camera_film",
 		"camera",
 		"kitchen_knife",
@@ -476,6 +481,7 @@
 		"gloves_polymer",
 		"ivlmodif",
 		"pill_bottle_ultra",
+		"adv_syringegun",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 5000)
 	required_experiments = list(/datum/experiment/dissection/nonhuman)

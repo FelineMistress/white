@@ -554,8 +554,9 @@
 
 
 // 	Обитаемые
-
+/*
 /datum/map_template/ruin_part/autism
 	file_name = "49x47_autism"
 	weight = 50
 	max_occurances = 1
+*/

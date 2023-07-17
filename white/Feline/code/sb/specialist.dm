@@ -47,7 +47,7 @@
 	pda_slot = ITEM_SLOT_LPOCKET
 
 	r_pocket = /obj/item/restraints/handcuffs
-	l_pocket = /obj/item/modular_computer/tablet/pda/engineering
+	l_pocket = /obj/item/modular_computer/tablet/pda/specialist
 
 	implants = list(/obj/item/implant/mindshield)
 
@@ -102,6 +102,29 @@
 	new /obj/item/quikdeploy/cade/plasteel(src)
 	new /obj/item/quikdeploy/cade/plasteel(src)
 	new /obj/item/recharger_item(src)
+
+// Усмиритель специалиста
+/obj/item/gun/energy/e_gun/suppressor
+	name = "подавитель"
+	desc = "Прототипная разработка нового усмирителя. К основному режиму стрельбы добавлена возможность вести огонь ослабленными ионными зарядами. К сожалению после модификации размеры устройства не позволяют переносить его в кобуре или сумке."
+	icon = 'white/Feline/icons/suppressor.dmi'
+	icon_state = "suppressor"
+	w_class = WEIGHT_CLASS_BULKY
+	force = 12
+	cell_type = /obj/item/stock_parts/cell/weapon/cell_3000
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/testing, /obj/item/ammo_casing/energy/ion/e_300) // 20 дисаблеров 10 ионок
+	charge_sections = 3
+	ammo_x_offset = 5
+	toggle_sound = 'white/Feline/sounds/suppressor_toggle.ogg'
+
+/obj/item/gun/energy/e_gun/suppressor/add_seclight_point()
+	AddComponent(/datum/component/seclite_attachable, \
+		starting_light = new /obj/item/flashlight/seclite(src), \
+		is_light_removable = FALSE, \
+		light_overlay_icon = 'white/Feline/icons/suppressor.dmi', \
+		light_overlay = "suppressor_light")
+//		overlay_x = 19,
+//		overlay_y = 13)
 
 // Сумка специалиста
 /obj/item/storage/belt/specialist

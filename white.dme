@@ -4553,6 +4553,7 @@
 #include "white\deda565\prikol.dm"
 #include "white\erring\shuttles.dm"
 #include "white\erring\ruins\ruin.dm"
+#include "white\Feline\code\antagonist\scarecrow.dm"
 #include "white\Feline\code\general\designes.dm"
 #include "white\Feline\code\general\equipment_all.dm"
 #include "white\Feline\code\general\techfab.dm"
