@@ -34,6 +34,9 @@
 	var/del_on_map_removal = TRUE
 	var/last_word
 
+	/// If FALSE, this will not be cleared when calling /client/clear_screen()
+	var/clear_with_screen = TRUE
+
 /atom/movable/screen/Destroy()
 	master = null
 	hud = null
@@ -633,7 +636,6 @@
 	icon = 'icons/hud/neoscreen64.dmi'
 	layer = HUD_ABOVE_BG_LAYER
 	icon_state = "nh0"
-	blend_mode = BLEND_ADD
 	screen_loc = UI_HEALTH
 
 /atom/movable/screen/healths/alien
@@ -753,7 +755,6 @@
 	icon = 'icons/hud/neoscreen64.dmi'
 	layer = HUD_ABOVE_BG_LAYER
 	icon_state = "ns0"
-	blend_mode = BLEND_ADD
 	screen_loc = UI_STAMINA
 
 

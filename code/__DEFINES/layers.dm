@@ -97,13 +97,22 @@
 #define HUD_PLANE 40
 #define ABOVE_HUD_PLANE 41
 
-///Plane of the "splash" icon used that shows on the lobby screen. only render plate planes should be above this
+///Plane of the "splash" icon used that shows on the lobby screen
 #define SPLASHSCREEN_PLANE 50
+
+// The largest plane here must still be less than RENDER_PLANE_GAME
 
 //-------------------- Rendering ---------------------
 #define RENDER_PLANE_GAME 100
 #define RENDER_PLANE_NON_GAME 101
-#define RENDER_PLANE_MASTER 102
+
+// Only VERY special planes should be here, as they are above not just the game, but the UI planes as well.
+
+/// Plane related to the menu when pressing Escape.
+/// Needed so that we can apply a blur effect to EVERYTHING, and guarantee we are above all UI.
+#define ESCAPE_MENU_PLANE 105
+
+#define RENDER_PLANE_MASTER 110
 
 // Lummox I swear to god I will find you
 // NOTE! You can only ever have planes greater then -10000, if you add too many with large offsets you will brick multiz
@@ -140,6 +149,8 @@
 #define WIRE_LAYER 2.4
 #define WIRE_BRIDGE_LAYER 2.44
 #define WIRE_TERMINAL_LAYER 2.45
+#define TRAM_RAIL_LAYER 2.465
+#define TRAM_FLOOR_LAYER 2.466
 #define GAS_SCRUBBER_LAYER 2.46
 #define GAS_PIPE_VISIBLE_LAYER 2.47 //layer = initial(layer) + piping_layer / 1000 in atmospherics/update_icon() to determine order of pipe overlap
 #define GAS_FILTER_LAYER 2.48
@@ -268,6 +279,7 @@
 
 ///Plane master controller keys
 #define PLANE_MASTERS_GAME "plane_masters_game"
+#define PLANE_MASTERS_NON_MASTER "plane_masters_non_master"
 #define PLANE_MASTERS_COLORBLIND "plane_masters_colorblind"
 
 //Plane master critical flags

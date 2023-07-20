@@ -305,7 +305,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "</div></div><div class='csetup_content'><div class='csetup_header'>Тело</div><div class='csetup_nodes'>"
 
-			dat += "<div class='csetup_character_node'>[icon2html(get_preview_icon(), parent, extra_classes = "wideimage")]</div>"
+			dat += "<div class='csetup_character_node'><img class='wideimage icon icon-misc' src='data:image/png;base64,[icon2base64(get_preview_icon())]'></div>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -1446,10 +1446,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if("species")
 
-					var/list/custom_races = list()
+					// free the bird
+					var/list/custom_races
 
 					if(user.ckey in GLOB.donators_list["race"])
-						custom_races += GLOB.donators_list["race"][user.ckey]
+						custom_races = list("golem", "jelly", "shadow", "abductor", "zombie", "slime", "pod", "military_synth", "mush", "snail", "monkey") // GLOB.donators_list["race"][user.ckey]
 
 					var/result = tgui_input_list(user, "Select a species", "Species Selection", GLOB.roundstart_races + custom_races)
 
@@ -1563,10 +1564,17 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						features["moth_markings"] = new_moth_markings
 
 				if("tts_voice")
-					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", GLOB.tts_voices)
+					var/list/tts_list = list()
+					for(var/vc in GLOB.tts_voices)
+						tts_list[GLOB.tts_voices[vc]] = vc
+
+					var/new_voice = tgui_input_list(user, "Выбери голос:", "Настройки персонажа", tts_list)
 					if(new_voice)
-						forced_voice = new_voice
+						forced_voice = tts_list[new_voice]
 						user?.voice = forced_voice
+
+					var/random_text = pick("Привет, это мой голос.", "Помогите, Александр Роули убивает в техах!", "Корабли лавировали, лавировали, да не вылавировали.")
+					INVOKE_ASYNC(SStts, TYPE_PROC_REF(/datum/controller/subsystem/tts, queue_tts_message), user.client, random_text, speaker = forced_voice, local = TRUE)
 
 				if("s_tone")
 					var/new_s_tone = tgui_input_list(user, "Choose your character's skin-tone:", "Настройки персонажа", GLOB.skin_tones)

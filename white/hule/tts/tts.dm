@@ -1,50 +1,74 @@
- //needs gtts python module
+// TODO: перенести это всё в жсон и добавить кэширование
 
-GLOBAL_VAR_INIT(tts, FALSE)
-
-GLOBAL_LIST_INIT(tts_voices, list(
-	"aidar" = "Айдар",
-	"baya" = "Байя",
-	"kseniya" = "Ксения",
-	"xenia" = "Сения",
-	"eugene" = "Евгений",
-	"charlotte" = "Шарлотта",
-	"bebey" = "Бэбэй",
-	"biden" = "Байден",
-	"papa" = "Папич",
-	"mykyta" = "Микита",
-	"glados" = "Гладос",
-	"sentrybot" = "Сентрибот",
-	"mana" = "Мана",
-	"soldier" = "Солдат",
-	"planya" = "Планя",
-	"amina" = "Амина"
+GLOBAL_LIST_INIT(tts_lowfreq, list(
+	"aidar",
+	"baya",
+	"kseniya",
+	"xenia",
+	"eugene",
+	"mykyta",
+	"briman",
+	"kleiner_alt",
+	"father_grigori",
+	"vance",
+	"barni",
+	"gman_alt",
+	"alyx",
+	"mossman",
+	"bandit",
+	"papich_alt",
+	"bebey_alt",
+	"glados_alt"
 ))
 
-////////////////////////////////////////
+GLOBAL_LIST_INIT(tts_voices, list(
+	"aidar" 	= "Разное: Айдар",
+	"baya" 		= "Разное: Байя",
+	"kseniya" 	= "Разное: Ксения",
+	"xenia" 	= "Разное: Сения",
+	"eugene" 	= "Разное: Евгений",
+	"biden" 	= "Разное: Байден",
+	"obama" 	= "Разное: Обама",
+	"trump" 	= "Разное: Трамп",
+	"mykyta" 	= "Разное: Микита",
+	"adolf" 	= "Разное: Адольф",
+	"adolf2" 	= "Разное: Адольф 2",
 
-/client/proc/anime_voiceover()
-	set category = "Адм.Веселье"
-	set name = "ANIME VO"
+	"charlotte" = "Медиа: Шарлотта",
+	"bebey" 	= "Медиа: Бэбэй",
+	"papa" 		= "Медиа: Папич",
+	"mana" 		= "Медиа: Мана",
+	"planya" 	= "Медиа: Планя",
+	"amina" 	= "Медиа: Амина",
+	"dbkn" 		= "Медиа: Добакин",
+	"papich_alt"= "Медиа: Папич Альт.",
+	"bebey_alt" = "Медиа: Бэбэй Альт.",
 
-	if(!check_rights())
-		return
+	"glados" 		 = "Portal: Гладос",
+	"adventure_core" = "Portal: Приключенец",
+	"space_core" 	 = "Portal: Космонавт",
+	"fact_core" 	 = "Portal: Фактовик",
+	"glados_alt" 	 = "Portal: Гладос Альт.",
 
-	var/list/menu = list("Cancel", "Toggle TTS", "Change Lang")
+	"sentrybot" = "Fallout: Сентрибот",
 
-	var/selected = tgui_input_list(usr, "Main Menu", "ANIME VOICEOVER", menu, "Cancel")
+	"soldier" = "TF2: Солдат",
 
-	switch(selected)
-		if("Cancel")
-			return
+	"neco" = "Аниме: Неко",
 
-		if("Toggle TTS")
-			GLOB.tts = !GLOB.tts
+	"kleiner" 		= "HL2: Кляйнер",
+	"gman" 			= "HL2: G-Man",
+	"briman" 		= "HL2: Уоллес Брин",
+	"alyx" 			= "HL2: Аликс Вэнс",
+	"kleiner_alt" 	= "HL2: Айзек Кляйнер Альт.",
+	"father_grigori"= "HL2: Отец Григорий",
+	"vance" 		= "HL2: Илай Вэнс",
+	"barni" 		= "HL2: Барни Калхун",
+	"gman_alt" 		= "HL2: G-Man Альт.",
+	"mossman" 		= "HL2: Джудит Моссман",
 
-			if(GLOB.tts)
-				message_admins("[key] toggled anime voiceover on.")
-			else
-				message_admins("[key] toggled anime voiceover off.")
+	"bandit" = "S.T.A.L.K.E.R: Бандит"
+))
 
 /proc/open_sound_channel_for_tts()
 	var/static/next_channel = CHANNEL_BOOMBOX_AVAILABLE + 1

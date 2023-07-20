@@ -290,9 +290,8 @@
 			defense_mod += 5
 		if(T.is_holding_item_of_type(/obj/item/shield))
 			defense_mod += 2
-		if(T.getorganslot(ORGAN_SLOT_TAIL))
+		if(T.get_organ_slot(ORGAN_SLOT_TAIL))
 			defense_mod += 2
-
 
 	// OF-FENSE
 	var/mob/living/carbon/sacker = parent
@@ -307,7 +306,7 @@
 		attack_mod -= 2
 	if(HAS_TRAIT(sacker, TRAIT_GIANT))
 		attack_mod += 2
-	if(sacker.getorganslot(ORGAN_SLOT_TAIL))
+	if(sacker.get_organ_slot(ORGAN_SLOT_TAIL))
 		attack_mod += 2
 	if(HAS_TRAIT(sacker, TRAIT_HULK))
 		attack_mod += 2
