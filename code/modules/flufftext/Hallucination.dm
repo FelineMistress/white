@@ -674,7 +674,6 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			if("demon")//Demon
 				A = image('icons/mob/mob.dmi',H,"daemon")
 				A.name = "Demon"
-/*
 			if("static")//static
 				A = image('icons/effects/effects.dmi',H,"static")
 				A.name = "Мираж"
@@ -684,7 +683,6 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			if("morph")//morph
 				A = image('icons/mob/animal.dmi',H,"morph")
 				A.name = "Морф"
-*/
 			if("custom")
 				A = image(custom_icon_file, H, custom_icon)
 				A.name = custom_name

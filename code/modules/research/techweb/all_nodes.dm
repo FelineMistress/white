@@ -1404,6 +1404,7 @@
 		"portadrive_advanced",
 		"portadrive_basic",
 		"portadrive_super",
+		"portadrive_ultra",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1000)  //they are really shitty
 

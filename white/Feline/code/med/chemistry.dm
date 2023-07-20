@@ -356,13 +356,12 @@
 	metabolization_rate = 0.085 * REAGENTS_METABOLISM
 	taste_description = "кровь и сера"
 
-/datum/reagent/medicine/hallucinogen/demonium/on_mob_life(mob/living/M)
+/datum/reagent/medicine/hallucinogen/demonium/on_mob_metabolize(mob/living/M)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-//	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "demon", duration = 1 MINUTES, skip_nearby = FALSE)
-	spawn(0)
-		new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
-		new /datum/hallucination/weird_sounds(M, forced = TRUE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "demon", duration = 1 MINUTES, skip_nearby = FALSE)
+//	new /datum/hallucination/delusion(M, TRUE, "demon",600,0)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/corgium
 	name = "Коргиум"
@@ -375,10 +374,8 @@
 /datum/reagent/medicine/hallucinogen/corgium/on_mob_metabolize(mob/living/M, amount)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
-//	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "corgi", duration = 1 MINUTES, skip_nearby = FALSE)
-	spawn(0)
-		new /datum/hallucination/delusion(M, TRUE, "corgi",600,0)
-		new /datum/hallucination/weird_sounds(M, forced = TRUE)
+	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "corgi", duration = 1 MINUTES, skip_nearby = FALSE)
+	new /datum/hallucination/weird_sounds(M, forced = TRUE)
 
 /datum/reagent/medicine/hallucinogen/skeletonium
 	name = "Скелетониум"
@@ -388,7 +385,7 @@
 	metabolization_rate = 0.085 * REAGENTS_METABOLISM
 	taste_description = "прах и кости"
 
-/datum/reagent/medicine/hallucinogen/skeletonium/on_mob_life(mob/living/M)
+/datum/reagent/medicine/hallucinogen/skeletonium/on_mob_metabolize(mob/living/M)
 	. = ..()
 	SEND_SOUND(M, sound('sound/hallucinations/veryfar_noise.ogg'))
 	new /datum/hallucination/delusion(M, forced = TRUE, force_kind = "skeleton", duration = 1 MINUTES, skip_nearby = FALSE)
@@ -447,7 +444,7 @@
 	if(prob(50))
 		var/direction = pick(GLOB.alldirs)
 		new /mob/living/carbon/human/species/monkey/angry/weak(get_step(get_turf(M), direction))
-/*
+
 /datum/reagent/medicine/hallucinogen/morphium
 	name = "Квазиморфиум"
 	enname = "morphium"
@@ -500,4 +497,4 @@
 	if(prob(50))
 		var/direction = pick(GLOB.alldirs)
 		new /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/no_damage(get_step(get_turf(M), direction))
-*/
+

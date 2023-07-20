@@ -38,7 +38,6 @@
 	shoes = /obj/item/clothing/shoes/jackboots
 	suit = /obj/item/clothing/suit/armor/vest/specialist
 	suit_store = /obj/item/tactical_recharger/disabler
-//	backpack_contents = list(/obj/item/storage/firstaid/medical/field_surgery = 1, /obj/item/optable = 1, /obj/item/modular_computer/laptop/preset/medical = 1, /obj/item/storage/pill_bottle/soldier = 1)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -112,15 +111,13 @@
 	w_class = WEIGHT_CLASS_BULKY
 	force = 12
 	cell_type = /obj/item/stock_parts/cell/weapon/cell_3000
-	ammo_type = list(/obj/item/ammo_casing/energy/disabler/testing, /obj/item/ammo_casing/energy/ion/e_300) // 20 дисаблеров 10 ионок
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler/e_150, /obj/item/ammo_casing/energy/ion/e_300) // 20 дисаблеров 10 ионок
 	charge_sections = 3
 	ammo_x_offset = 5
 	toggle_sound = 'white/Feline/sounds/suppressor_toggle.ogg'
 
 /obj/item/gun/energy/e_gun/suppressor/add_seclight_point()
 	AddComponent(/datum/component/seclite_attachable, \
-		starting_light = new /obj/item/flashlight/seclite(src), \
-		is_light_removable = FALSE, \
 		light_overlay_icon = 'white/Feline/icons/suppressor.dmi', \
 		light_overlay = "suppressor_light")
 //		overlay_x = 19,

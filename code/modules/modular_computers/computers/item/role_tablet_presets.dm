@@ -3,6 +3,7 @@
  */
 
 /obj/item/modular_computer/tablet/pda/heads
+	max_capacity = 128
 	greyscale_config = /datum/greyscale_config/tablet/head
 	greyscale_colors = "#67A364#a92323"
 	starting_programs = list(

@@ -2506,7 +2506,7 @@
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/glitter
-	name = "блятьстки"
+	name = "блёстки"
 	enname = "generic glitter"
 	description = "if you can see this description, contact a coder."
 	color = "#FFFFFF" //pure white
@@ -2542,6 +2542,14 @@
 	description = "blue sparkles that get everywhere"
 	color = "#4040FF" //A blueish color
 	glitter_type = /obj/effect/decal/cleanable/glitter/blue
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+
+/datum/reagent/glitter/blood
+	name = "свернувшаяся кровь"
+	enname = "bloody"
+	description = "pink sparkles that get everywhere"
+	color = "#e20f0f"
+	glitter_type = /obj/effect/decal/cleanable/blood
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/pax
