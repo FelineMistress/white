@@ -241,7 +241,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 			sensor_mode = SENSOR_COORDS
 		else
 			if(uniform)
-				if(uniform.has_sensor <= NO_SENSORS)
+				if(uniform.has_sensor >= NO_SENSORS)
 					sensor_mode = uniform.sensor_mode
 
 		// The entry for this human

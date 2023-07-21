@@ -27,6 +27,19 @@
 	stage = GRENADE_READY
 	no_disassembly = TRUE
 
+/obj/item/grenade/chem_grenade/scarecrow/proc/turn_off_thermal(mob/living/carbon/user)
+	REMOVE_TRAIT(user, TRAIT_THERMAL_VISION, GRENADE_TRAIT)
+	user.update_sight()
+
+/obj/item/grenade/chem_grenade/scarecrow/attack_self(mob/living/carbon/user)
+	if(istype(user.get_item_by_slot(ITEM_SLOT_HEAD), /obj/item/clothing/head/scarecrow))
+		to_chat(user, span_warning("Глаза маски [user] начинают светиться ярко-алым!"))
+		ADD_TRAIT(user, TRAIT_THERMAL_VISION, GRENADE_TRAIT)
+		user.update_sight()
+		addtimer(CALLBACK(src, /obj/item/grenade/chem_grenade/scarecrow/proc/turn_off_thermal, user), 15 SECONDS)
+	. = ..()
+
+
 /obj/item/grenade/chem_grenade/scarecrow/n1_corgium/Initialize(mapload) // Корги + Пакс
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
@@ -89,7 +102,7 @@
 	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/meta/B2 = new(src)
 
-	B1.reagents.add_reagent(/datum/reagent/medicine/hallucinogen/carpium, 120)
+	B1.reagents.add_reagent(/datum/reagent/medicine/hallucinogen/carpium, 60)
 	B1.reagents.add_reagent(/datum/reagent/potassium, 50)
 	B2.reagents.add_reagent(/datum/reagent/phosphorus, 50)
 	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 50)
@@ -137,13 +150,12 @@
 	beakers += B1
 	beakers += B2
 
-/obj/item/grenade/chem_grenade/scarecrow/n9_skewium/Initialize(mapload) // Искревление
+/obj/item/grenade/chem_grenade/scarecrow/n9_statium/Initialize(mapload) // Искревление
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/meta/B2 = new(src)
 
 	B1.reagents.add_reagent(/datum/reagent/medicine/hallucinogen/statium, 60)
-	B1.reagents.add_reagent(/datum/reagent/toxin/skewium, 60)
 	B1.reagents.add_reagent(/datum/reagent/potassium, 50)
 	B2.reagents.add_reagent(/datum/reagent/phosphorus, 50)
 	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 50)

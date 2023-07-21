@@ -21,7 +21,7 @@
 	ai_controller = /datum/ai_controller/monkey/angry
 
 /mob/living/carbon/human/species/monkey/angry/weak
-	maxHealth = 30
+	maxHealth = 40
 
 /mob/living/carbon/human/species/monkey/angry/Initialize(mapload)
 	. = ..()

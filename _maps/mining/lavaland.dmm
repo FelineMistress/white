@@ -5413,8 +5413,11 @@
 /area/mine/laborcamp)
 "Uv" = (
 /obj/item/stack/rods/lava/thirty,
-/obj/effect/mob_spawn/human/corpse/miner/explorer,
 /obj/structure/closet/body_bag/environmental,
+/obj/effect/mob_spawn/human/miner/explorer{
+	brute_damage = 150;
+	oxy_damage = 50
+	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "UA" = (

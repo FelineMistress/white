@@ -806,6 +806,8 @@
 		"power_compressor",
 		"circulator",
 		"teg",
+//		"enernet_control",
+//		"enernet_coil",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3500)
 	discount_experiments = list(/datum/experiment/scanning/points/machinery_pinpoint_scan/tier2_capacitors = 2500)

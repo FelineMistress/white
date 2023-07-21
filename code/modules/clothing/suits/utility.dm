@@ -58,7 +58,7 @@
  * Bomb protection
  */
 /obj/item/clothing/head/bomb_hood
-	name = "бомбошлем"
+	name = "шлем сапёра"
 	desc = "Используйте в случае взрыва."
 	icon_state = "bombsuit"
 	clothing_flags = THICKMATERIAL | SNUG_FIT
@@ -145,7 +145,7 @@
 */
 
 /obj/item/clothing/head/radiation
-	name = "анти-радиационный капюшон"
+	name = "капюшон радиационный защиты"
 	icon_state = "rad"
 	desc = "Капюшон с радиационно-защитными свойствами. На этикетке написано: «Сделано из свинца. Пожалуйста, не потребляйте изоляцию.»"
 	clothing_flags = THICKMATERIAL | SNUG_FIT
@@ -158,7 +158,7 @@
 	flags_1 = RAD_PROTECT_CONTENTS_1
 
 /obj/item/clothing/suit/radiation
-	name = "анти-радиационный костюм"
+	name = "костюм радиационный защиты"
 	desc = "Костюм с радиационно-защитными свойствами. На этикетке написано: «Сделано из свинца. Пожалуйста, не потребляйте изоляцию.»"
 	icon_state = "rad"
 	inhand_icon_state = "rad_suit"

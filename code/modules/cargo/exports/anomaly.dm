@@ -24,3 +24,18 @@
 	cost = CARGO_CRATE_VALUE * 1500
 	unit_name = "Ядро вихревой аномалии"
 	export_types = list(/obj/item/assembly/signaler/anomaly/vortex)
+
+/datum/export/anomaly/bioscrambler
+	cost = CARGO_CRATE_VALUE * 500
+	unit_name = "Ядро биоконверсионной аномалии"
+	export_types = list(/obj/item/assembly/signaler/anomaly/bioscrambler)
+
+/datum/export/anomaly/hallucination
+	cost = CARGO_CRATE_VALUE * 750
+	unit_name = "Ядро галюциногенной аномалии"
+	export_types = list(/obj/item/assembly/signaler/anomaly/hallucination)
+
+/datum/export/anomaly/dimensional
+	cost = CARGO_CRATE_VALUE * 1500
+	unit_name = "Ядро пространственной аномалии"
+	export_types = list(/obj/item/assembly/signaler/anomaly/dimensional)

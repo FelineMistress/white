@@ -1192,7 +1192,7 @@
 /datum/supply_pack/engine/am_core
 	name = "Комплект управляющего блока АМ"
 	desc = "Это устройство вводит антивещество в подключенные экранирующие устройства, чем больше антивещества вводится, тем больше вырабатывается энергии."
-	cost = BUY_CRATE_VALUE * 4
+	cost = BUY_CRATE_VALUE * 5
 	contains = list(/obj/machinery/power/am_control_unit)
 	crate_name = "ящик управляющего блока АМ"
 
@@ -1432,7 +1432,7 @@
 /datum/supply_pack/medical/supplies
 	name = "Комплект аптечных припасов"
 	desc = "Содержит аптечки и некоторые прочие химикаты."
-	cost = BUY_CRATE_VALUE * 4
+	cost = BUY_CRATE_VALUE * 5
 	contains = list(
 		/obj/item/reagent_containers/glass/bottle/multiver,
 		/obj/item/reagent_containers/glass/bottle/epinephrine,

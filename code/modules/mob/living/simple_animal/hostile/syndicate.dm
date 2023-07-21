@@ -231,6 +231,7 @@
 	maxHealth = 30
 	health = 30
 	casingtype = /obj/item/ammo_casing/c45/fake
+	obj_damage = 0
 
 /mob/living/simple_animal/hostile/syndicate/ranged/smg/space/Initialize(mapload)
 	. = ..()

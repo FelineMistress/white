@@ -31825,6 +31825,10 @@
 /obj/item/clothing/head/nursehat,
 /obj/item/clothing/under/rank/medical/doctor/nurse,
 /obj/item/clothing/suit/shrine_maiden,
+/obj/item/clothing/gloves/maid,
+/obj/item/clothing/accessory/maidapron,
+/obj/item/clothing/neck/maid,
+/obj/item/clothing/under/rank/civilian/janitor/maid,
 /turf/open/floor/wood,
 /area/commons/fitness/kachalka)
 "iSj" = (
@@ -33814,11 +33818,11 @@
 	pixel_y = 0
 	},
 /obj/tacmap/directional/north,
-/obj/item/clothing/head/beret/highlander,
 /obj/structure/closet,
 /obj/item/clothing/under/costume/sailor,
 /obj/item/clothing/under/costume/bathrobe,
 /obj/item/clothing/under/costume/kilt,
+/obj/item/clothing/head/beret,
 /turf/open/floor/wood,
 /area/commons/fitness/kachalka)
 "jxi" = (

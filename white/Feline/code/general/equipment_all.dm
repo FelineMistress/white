@@ -1072,6 +1072,9 @@
 	base_pixel_x = -16
 	density = TRUE
 	use_power = NO_POWER_USE
+	light_system = MOVABLE_LIGHT
+	light_range = 5
+	light_color = COLOR_ASSEMBLY_WHITE
 	var/power_gen = 250000
 	var/datum/looping_sound/hypertorus/no_vary/soundloop
 

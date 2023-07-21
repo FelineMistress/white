@@ -263,7 +263,7 @@
 	inhand_icon_state = "aerostatic_gloves"
 
 /obj/item/clothing/gloves/maid
-	name = "maid arm covers"
-	desc = "Cylindrical looking tubes that go over your arm, weird."
+	name = "нарукавники служанки"
+	desc = "Нарукавники цилиндрического вида, миленько."
 	icon_state = "maid_arms"
 	worn_icon_state = "maid_arms"

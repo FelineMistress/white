@@ -324,6 +324,7 @@
 	products = list(
 		/obj/item/clothing/under/rank/civilian/janitor = 2,
 		/obj/item/clothing/under/rank/civilian/janitor/skirt = 2,
+		/obj/item/clothing/under/rank/civilian/janitor/maid = 2,
 		/obj/item/clothing/suit/hazardvest/janitor = 2,
 		/obj/item/clothing/gloves/color/black = 2,
 		/obj/item/clothing/head/soft/purple = 2,
