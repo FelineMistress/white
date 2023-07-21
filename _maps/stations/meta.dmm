@@ -462,7 +462,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall,
-/area/service/janitor)
+/area/service/janitor/second)
 "aaW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/warning/nosmoking{
@@ -663,7 +663,7 @@
 	pixel_y = 29
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "abu" = (
 /obj/docking_port/stationary{
 	dwidth = 1;
@@ -1374,7 +1374,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/service/janitor)
+/area/service/janitor/second)
 "adI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/stool,
@@ -1382,7 +1382,7 @@
 	dir = 10
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "adM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -3430,7 +3430,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
-/area/service/janitor)
+/area/service/janitor/second)
 "ajl" = (
 /obj/item/soap/deluxe,
 /obj/item/storage/secure/safe{
@@ -4604,7 +4604,7 @@
 	pixel_y = -22
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "amC" = (
 /obj/structure/chair{
 	dir = 4
@@ -41267,7 +41267,7 @@
 	pixel_y = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "cdY" = (
 /obj/machinery/suit_storage_unit/rd,
 /obj/effect/turf_decal/stripes/line{
@@ -41658,7 +41658,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "cfq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
@@ -42342,7 +42342,7 @@
 /obj/machinery/light/small,
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "chM" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -59863,7 +59863,7 @@
 "hwj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall,
-/area/service/janitor)
+/area/service/janitor/second)
 "hxH" = (
 /obj/structure/disposalpipe/sorting/mail{
 	dir = 8;
@@ -61032,7 +61032,7 @@
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "iAs" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -63157,7 +63157,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/janitor,
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "kcW" = (
 /obj/machinery/door/window/northleft{
 	name = "Nanite Lab"
@@ -63301,7 +63301,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/janitorialcart,
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "kjJ" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/structure/disposalpipe/segment{
@@ -63610,7 +63610,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/water_vapor,
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "kxh" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "PermaLockdown";
@@ -64116,7 +64116,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "kSN" = (
 /obj/effect/turf_decal/tile/green{
 	dir = 1
@@ -65322,7 +65322,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "lWh" = (
 /obj/machinery/computer/security/hos{
 	dir = 4
@@ -72967,6 +72967,9 @@
 /obj/machinery/biogenerator,
 /turf/closed/wall,
 /area/hallway/secondary/service)
+"rCf" = (
+/turf/closed/wall,
+/area/service/janitor/second)
 "rDo" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -80083,7 +80086,7 @@
 "xdW" = (
 /obj/machinery/vending/wardrobe/jani_wardrobe,
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "xel" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/backpack/duffelbag/med/surgery,
@@ -80284,7 +80287,7 @@
 	pixel_x = 32
 	},
 /turf/open/floor/plasteel,
-/area/service/janitor)
+/area/service/janitor/second)
 "xoB" = (
 /obj/structure/cable,
 /obj/machinery/computer/secure_data{
@@ -119130,12 +119133,12 @@ brh
 bYp
 bST
 jVx
-bcd
-bcd
+rCf
+rCf
 cfk
-bcd
-bcd
-bcd
+rCf
+rCf
+rCf
 ckw
 cma
 cna
@@ -119387,12 +119390,12 @@ aPD
 cow
 bST
 tsx
-bcd
+rCf
 kSB
 cfl
 iAj
 kjh
-bcd
+rCf
 ckx
 nbv
 dwQ
@@ -119644,12 +119647,12 @@ bFq
 mvj
 jkq
 wvy
-bcd
+rCf
 cdX
 adH
 kcI
 chE
-bcd
+rCf
 cky
 nbv
 dwX
@@ -119901,12 +119904,12 @@ myd
 bST
 bST
 mKP
-bcd
+rCf
 abt
 adI
 ajk
 amB
-bcd
+rCf
 ckz
 nbv
 dwY
@@ -120158,12 +120161,12 @@ gaD
 fuw
 lLO
 oxX
-bcd
+rCf
 xdW
 lUZ
 xop
 kwL
-bcd
+rCf
 aqe
 dwQ
 cnb
@@ -120420,7 +120423,7 @@ hwj
 hwj
 hwj
 hwj
-bcd
+rCf
 arh
 cmb
 cnc
